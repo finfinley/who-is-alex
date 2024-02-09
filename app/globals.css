@@ -2,17 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif 
-} */
-
 body {
   background: #272838;
-  /* background: repeating-linear-gradient(
-    35deg,
-    hsl(236, 18%, 19%) 0px 2px,
-    hsl(270, 18%, 27%) 0px 4px
-  ); */
   color: #F2E9E4;
   height: 100%;
 }
@@ -39,6 +30,5 @@ h1 {
   display: flex;
   font-weight: bold;
   font-size: 5em;
-  text-transform: uppercase;
   font-family: Trocchi;
 }

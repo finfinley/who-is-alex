@@ -1,15 +1,11 @@
-import { NavBar } from "./components/NavBar";
+import { Header } from "./components/Page/Header";
+import { MainContent } from "./components/Page/MainContent";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
-      <main>
-        <div className="max-w-max">
-          <h1>About</h1>
-          <p>CONTENT</p>
-        </div>
-      </main>
+      <Header title="Hey There" />
+      <MainContent content="CONTENT" />
     </>
   );
 }

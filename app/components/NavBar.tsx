@@ -18,17 +18,14 @@ const StyledLink = styled(Link)`
 
 const navItems = {
     '/': {
-        name: 'About',
+        name: 'Home',
     },
-    '/work': {
-        name: 'Work',
+    '/projects': {
+        name: 'Projects',
     },
-    // '/blog': {
-    //     name: 'Blog',
-    // },
-    // '/guestbook': {
-    //     name: 'Guestbook',
-    // },
+    '/guestbook': {
+        name: 'Guestbook',
+    },
 };
 
 export function NavBar() {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { NavBar } from "./components/NavBar";
 
 
 export const metadata: Metadata = {
@@ -15,7 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-row">{children}</body>
+      <body className="flex flex-row">
+        <NavBar />
+        <main>
+          <div className="max-w-max">
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   );
 }
