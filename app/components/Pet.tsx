@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation';
+import { isEqual } from 'lodash';
+
 
 type PetType = {
     link: string | null,
@@ -22,22 +24,26 @@ const PET_MAP: PetType[] = [{
 
 }]
 
-export function Pet() {
+export function Pet({ defaultIndex }: { defaultIndex: number }) {
     const pathName = usePathname()
-
-    const defaultIndex = Math.floor(Math.random() * (2 - 0 + 1) + 0)
     const defaultPet = PET_MAP[defaultIndex]
     const [petToShow, setPetToShow] = useState<PetType>(defaultPet)
     useEffect(() => {
-        console.log('Inside effect..')
         const index = Math.floor(Math.random() * (2 - 0 + 1) + 0)
-        if (defaultIndex === index) {
-            return
+        const newPet = PET_MAP[index]
+        if (isEqual(defaultPet, newPet)) {
+            setPetToShow(defaultPet)
         }
-        setPetToShow(PET_MAP[index])
+        setPetToShow(newPet)
     }, [pathName])
 
+    const gifPet = petToShow.link ? <img className='justify-self-center self-end' src={petToShow.link} /> : <img />
+
     return (
-        petToShow.link && (<img className='justify-self-center self-end' src={petToShow.link} />)
+        <>
+            {gifPet}
+        </>
+
     )
+
 }
