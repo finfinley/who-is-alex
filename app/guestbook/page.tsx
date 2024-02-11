@@ -7,5 +7,5 @@ export default function Guestbook() {
       <Header title="Guestbook" />
       <MainContent content="CONTENT" />
     </>
-  )
+  );
 }
