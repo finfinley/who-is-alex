@@ -4,7 +4,7 @@ type HeaderProps = {
 
 export function Header({ title }: HeaderProps) {
     return (
-        <div className="flex justify-center">
+        <div className="grid justify-center justify-items-center">
             <h1>{title}</h1>
         </div>
     )

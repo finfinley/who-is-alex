@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { NavBar } from "./components/NavBar";
+import { Pet } from "./components/Pet";
 
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
           <div className="max-w-max">
             {children}
           </div>
+          <Pet />
         </main>
       </body>
     </html>
