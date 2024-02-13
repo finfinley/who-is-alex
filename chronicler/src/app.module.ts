@@ -7,7 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://<USER>>:<PASSWORD>@chronicle.8ircsqe.mongodb.net/?retryWrites=true&w=majority',
+      'mongodb+srv://merlin:magic@chronicle.8ircsqe.mongodb.net/?retryWrites=true&w=majority',
     ),
     ArchivesModule,
   ],
