@@ -9,10 +9,13 @@ export class Archive {
   name: string;
 
   @Prop({ required: true })
-  pet: 'Luna' | 'Dash';
+  pet: 'luna' | 'dash';
 
   @Prop({ required: false })
   email: string;
+
+  @Prop({ required: true, default: new Date().toISOString() })
+  date: string;
 }
 
 export const ArchiveSchema = SchemaFactory.createForClass(Archive);

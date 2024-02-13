@@ -8,12 +8,8 @@ import { InjectModel } from '@nestjs/mongoose';
 export class ArchivesService {
   constructor(@InjectModel(Archive.name) private archiveModel) {}
 
-  create(createArchiveDto: CreateArchiveDto) {
-    const createdArchive = new this.archiveModel({
-      email: 'merlin@magic.com',
-      name: 'Merlin',
-      pet: 'Dash',
-    });
+  async create(createArchiveDto: CreateArchiveDto) {
+    const createdArchive = await new this.archiveModel(createArchiveDto);
     return createdArchive.save();
   }
 

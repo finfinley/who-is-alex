@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Res,
+  HttpStatus,
+} from '@nestjs/common';
 import { ArchivesService } from './archives.service';
 import { CreateArchiveDto } from './dto/create-archive.dto';
 import { UpdateArchiveDto } from './dto/update-archive.dto';
@@ -8,8 +18,20 @@ export class ArchivesController {
   constructor(private readonly archivesService: ArchivesService) {}
 
   @Post()
-  create(@Body() createArchiveDto: CreateArchiveDto) {
-    return this.archivesService.create(createArchiveDto);
+  async create(@Res() response, @Body() createArchiveDto: CreateArchiveDto) {
+    try {
+      const newArchive = await this.archivesService.create(createArchiveDto);
+      return response.status(HttpStatus.CREATED).json({
+        message: 'New archive has been stored 📖',
+        newArchive,
+      });
+    } catch (err) {
+      return response.status(HttpStatus.BAD_REQUEST).json({
+        statusCode: 400,
+        message: 'Tis but a scratch: Archive has not been stored.',
+        error: 'Bad Request',
+      });
+    }
   }
 
   @Get()
