@@ -26,10 +26,11 @@ export class ArchivesController {
         newArchive,
       });
     } catch (err) {
+      console.error({ err });
       return response.status(HttpStatus.BAD_REQUEST).json({
         statusCode: 400,
         message: 'Tis but a scratch: Archive has not been stored.',
-        error: 'Bad Request',
+        error: err.error
       });
     }
   }
