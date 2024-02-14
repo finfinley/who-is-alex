@@ -8,12 +8,15 @@ import {
   Delete,
   Res,
   HttpStatus,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ArchivesService } from './archives.service';
 import { CreateArchiveDto } from './dto/create-archive.dto';
 import { UpdateArchiveDto } from './dto/update-archive.dto';
+import { HttpLoggingInterceptor } from 'src/middleware/HttpLogging.interceptor';
 
 @Controller('archives')
+@UseInterceptors(HttpLoggingInterceptor)
 export class ArchivesController {
   constructor(private readonly archivesService: ArchivesService) {}
 
