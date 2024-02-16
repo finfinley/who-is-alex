@@ -1,14 +1,10 @@
 'use client';
-import axios from 'axios';
 import useSWR from 'swr';
-
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+import { archivesFetcher } from '../api/fetchers';
+import { StoredArchive } from '../api/types';
 
 export function GuestbookArchives() {
-  const { data, error, isLoading } = useSWR(
-    'http://localhost:3001/archives',
-    fetcher,
-  );
+  const { data, error, isLoading } = useSWR(process.env.CHRONICLER_URL, archivesFetcher);
 
   if (isLoading) {
     return 'Loading...';
@@ -20,7 +16,7 @@ export function GuestbookArchives() {
 
   return (
     <ul>
-      {data?.map((archive: any) => {
+      {data?.map((archive: StoredArchive) => {
         return <li key={archive._id}>{archive.name}</li>;
       })}
     </ul>

@@ -6,7 +6,6 @@ export default function Guestbook() {
   return (
     <>
       <Header title="Guestbook" />
-      <MainContent content="CONTENT" />
       <GuestbookArchives />
     </>
   );
