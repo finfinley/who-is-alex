@@ -4,7 +4,7 @@ import { archivesFetcher } from '../api/fetchers';
 import { StoredArchive } from '../api/types';
 
 export function GuestbookArchives() {
-  const { data, error, isLoading } = useSWR(process.env.CHRONICLER_URL, archivesFetcher);
+  const { data, error, isLoading } = useSWR(process.env.NEXT_PUBLIC_CHRONICLER_URL, archivesFetcher);
 
   if (isLoading) {
     return 'Loading...';
