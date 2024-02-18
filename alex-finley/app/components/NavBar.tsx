@@ -34,7 +34,7 @@ export function NavBar() {
       <nav>
         <div className="h-screen flex flex-col justify-center items-center pb-40">
           <div className="w-9/12">
-            <img src="img/me.png" className="rounded-full object-contain" />
+            <img src="img/me.png" className="object-contain" />
           </div>
           <div className="flex flex-col items-center pb-2">
             <Tagline>Alex Finley</Tagline>
