@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Tagline = styled.span`
-  color: #4c86a8;
+  color: #5299D3;
   font-family: "Source Sans Pro", sans-serif;
   /* &:hover {
     background-color: #443850;
@@ -38,7 +38,7 @@ export function NavBar() {
           </div>
           <div className="flex flex-col items-center pb-2">
             <Tagline>Alex Finley</Tagline>
-            <Tagline style={{ color: "#E05263", fontStyle: "italic" }}>
+            <Tagline style={{ color: "#70A288", fontStyle: "italic" }}>
               Pixel Picasso
             </Tagline>
           </div>

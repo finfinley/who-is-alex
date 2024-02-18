@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  background: #272838;
-  color: #f2e9e4;
+  background: #F2E9E4;
+  color: #353B3C;
   height: 100%;
   width: 100%;
 }
@@ -22,11 +22,11 @@ aside {
   height: 100vh;
   width: 30%;
   border-right-width: 0.25em;
-  border-right-color: #443850;
+  border-right-color: #E05263;
 }
 
 h1 {
-  color: #4c86a8;
+  color: #5299D3;
   justify-self: center;
   display: grid;
   font-weight: bold;
