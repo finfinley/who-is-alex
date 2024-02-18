@@ -1,21 +1,27 @@
-"use client";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { isEqual } from "lodash";
+'use client';
+import { isEqual } from 'lodash';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { SignGuestbook } from './Modals/SignGuestbook';
+
+export enum PET_NAMES {
+  LUNA = 'luna',
+  DASH = 'dash',
+}
 
 type PetType = {
   link: string | null;
-  name: "Luna" | "Dash" | null;
+  name: PET_NAMES | null;
 };
 
 const PET_MAP: PetType[] = [
   {
-    link: "gifs/Luna-wag.gif",
-    name: "Luna",
+    link: 'gifs/Luna-wag.gif',
+    name: PET_NAMES.LUNA,
   },
   {
-    link: "gifs/dash-wag.gif",
-    name: "Dash",
+    link: 'gifs/dash-wag.gif',
+    name: PET_NAMES.DASH,
   },
   {
     link: null,
@@ -27,6 +33,17 @@ export function Pet({ defaultIndex }: { defaultIndex: number }) {
   const pathName = usePathname();
   const defaultPet = PET_MAP[defaultIndex];
   const [petToShow, setPetToShow] = useState<PetType>(defaultPet);
+  const [modalDisplay, setModalDisplay] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalDisplay(true);
+  };
+  const closeModal = () => {
+    if (modalDisplay) {
+      setModalDisplay(false);
+    }
+  };
+
   useEffect(() => {
     const index = Math.floor(Math.random() * (2 - 0 + 1) + 0);
     const newPet = PET_MAP[index];
@@ -37,10 +54,17 @@ export function Pet({ defaultIndex }: { defaultIndex: number }) {
   }, [pathName]);
 
   const gifPet = petToShow.link ? (
-    <img className="justify-self-center self-end" src={petToShow.link} />
+    <button onClick={openModal}>
+      <img className="justify-self-center self-end" src={petToShow.link} />
+    </button>
   ) : (
     <img />
   );
 
-  return <>{gifPet}</>;
+  return (
+    <>
+      {gifPet}
+      {modalDisplay && <SignGuestbook pet={petToShow.name} onClose={closeModal} />}
+    </>
+  );
 }
