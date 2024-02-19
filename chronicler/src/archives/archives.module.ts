@@ -11,10 +11,6 @@ import { Archive, ArchiveSchema } from './schemas/archive.schema';
         name: Archive.name,
         useFactory: () => {
           const schema = ArchiveSchema;
-          schema.plugin(require('mongoose-unique-validator'), {
-            message: 'Email must be unique',
-
-          });
           return schema;
         },
       },

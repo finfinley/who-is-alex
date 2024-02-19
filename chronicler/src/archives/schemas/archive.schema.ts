@@ -11,7 +11,7 @@ export class Archive {
   @Prop({ required: true })
   pet: 'luna' | 'dash';
 
-  @Prop({ required: false, unique: true })
+  @Prop({ required: false })
   email: string;
 
   @Prop({ required: true, default: new Date().toISOString() })
