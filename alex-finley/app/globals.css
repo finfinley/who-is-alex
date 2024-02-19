@@ -124,3 +124,9 @@ h2 {
   background: #e05263;
   color: #f2e9e4;
 }
+
+.form-style input[type='submit']:disabled,
+.form-style input[type='button']:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
