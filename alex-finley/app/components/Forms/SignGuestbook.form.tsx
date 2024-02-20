@@ -3,12 +3,25 @@ import { PET_NAMES } from '../Pet';
 
 export function SignGuestbookForm({
   onClose,
+  setSigned,
+  setError,
   pet,
 }: {
   onClose: () => void;
+  setSigned: any;
+  setError: any;
   pet: PET_NAMES | null;
 }) {
-  const signGuestbook = createArchive.bind(null, pet!);
+  const signGuestbook = async (formData: FormData) => {
+    const res = await createArchive(pet!, formData);
+    if (!res.success) {
+      console.log(res.error);
+      setError(res.error);
+      return;
+    }
+    setSigned(true);
+    console.log('Guestbook signed');
+  };
 
   return (
     <form action={signGuestbook} className="form-style flex flex-col">

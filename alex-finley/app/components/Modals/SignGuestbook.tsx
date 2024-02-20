@@ -1,8 +1,10 @@
-import { createArchive } from '@/app/api/actions';
+'use client';
+
+import React from 'react';
+import { SignGuestbookForm } from '../Forms/SignGuestbook.form';
 import { Header } from '../Page/Header';
 import { Subheader } from '../Page/Subheader';
 import { PET_NAMES } from '../Pet';
-import { SignGuestbookForm } from '../Forms/SignGuestbookForm';
 
 export function SignGuestbook({
   onClose,
@@ -11,6 +13,9 @@ export function SignGuestbook({
   onClose: () => void;
   pet: PET_NAMES | null;
 }) {
+  const [signed, setSigned] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<string | undefined>();
+
   let greeting = 'Cheers!';
   switch (pet) {
     case PET_NAMES.DASH:
@@ -31,11 +36,33 @@ export function SignGuestbook({
     <div className="modal">
       <div className="modal-content flex flex-row">
         <div>
-          <Header title={greeting} />
-          <Subheader Subheader="Why not sign the guestbook?" />
-          <div className="flex flex-col">
-            <SignGuestbookForm onClose={onClose} pet={pet} />
-          </div>
+          {signed ? (
+            <>
+              <div
+                className="grid grid-row justify-center content-center justify-items-center"
+                style={{ height: '100%' }}
+              >
+                <h1 style={{ fontSize: '2.5em' }}>Thanks for signing!</h1>
+                <div className="p-3">
+                  <input className='closeBtn' type="button" value="Close" onClick={onClose} />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <Header title={greeting} />
+              <Subheader Subheader="Why not sign the guestbook?" />
+              <div className="flex flex-col">
+                <SignGuestbookForm
+                  onClose={onClose}
+                  setSigned={setSigned}
+                  setError={setError}
+                  pet={pet}
+                />
+                {error && <span className="flex justify-center">{error}</span>}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

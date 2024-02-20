@@ -6,18 +6,33 @@ import { components } from './schema';
 
 type CreateArchiveRequestBody = components['schemas']['CreateArchiveDto'];
 
-export async function createArchive(pet: PET_NAMES, formData: FormData) {
+type Result =
+  | {
+      success: true;
+    }
+  | {
+      success: false;
+      error: string;
+    };
+
+export async function createArchive(
+  pet: PET_NAMES,
+  formData: FormData,
+): Promise<Result> {
+  'use server';
   try {
     const reqBody: CreateArchiveRequestBody = {
       name: formData.get('name') as string,
       pet,
       email: formData.get('email') as string,
     };
-    const res = await axios.post(`http://localhost:3001/archives`, reqBody);
-    if (res.status === 201) {
-      console.log('Archive added!');
-    }
+    await axios.post(`http://localhost:3001/archives`, reqBody);
   } catch (err) {
     console.error({ err });
+    return { success: false, error: 'Failed to sign guestbook ❤️‍🩹' };
   }
+
+  return {
+    success: true,
+  };
 }

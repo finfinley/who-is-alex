@@ -130,3 +130,16 @@ h2 {
   opacity: 0.5;
   pointer-events: none;
 }
+
+.closeBtn {
+  border: 0.15em solid #e05263;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
+  width: 8em;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  background: #70a288;
+  border-color: #70a288;
+}
