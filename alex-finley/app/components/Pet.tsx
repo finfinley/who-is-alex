@@ -2,7 +2,7 @@
 import { isEqual } from 'lodash';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { SignGuestbook } from './Modals/SignGuestbook';
+import { GuestbookModal } from './Modals/Guestbook/GuestbookModal';
 
 export enum PET_NAMES {
   LUNA = 'luna',
@@ -64,7 +64,9 @@ export function Pet({ defaultIndex }: { defaultIndex: number }) {
   return (
     <>
       {gifPet}
-      {modalDisplay && <SignGuestbook pet={petToShow.name} onClose={closeModal} />}
+      {modalDisplay && (
+        <GuestbookModal pet={petToShow.name} onClose={closeModal} />
+      )}
     </>
   );
 }
