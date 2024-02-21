@@ -14,7 +14,7 @@ export function SignGuestbook({
   pet: PET_NAMES | null;
 }) {
   const [signed, setSigned] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string | undefined>();
+  const [errors, setErrors] = React.useState<string[] | undefined>();
 
   let greeting = 'Cheers!';
   switch (pet) {
@@ -31,7 +31,7 @@ export function SignGuestbook({
       greeting = 'Cheers!';
       break;
   }
-
+  
   return (
     <div className="modal">
       <div className="modal-content flex flex-row">
@@ -44,7 +44,12 @@ export function SignGuestbook({
               >
                 <h1 style={{ fontSize: '2.5em' }}>Thanks for signing!</h1>
                 <div className="p-3">
-                  <input className='closeBtn' type="button" value="Close" onClick={onClose} />
+                  <input
+                    className="closeBtn"
+                    type="button"
+                    value="Close"
+                    onClick={onClose}
+                  />
                 </div>
               </div>
             </>
@@ -56,10 +61,13 @@ export function SignGuestbook({
                 <SignGuestbookForm
                   onClose={onClose}
                   setSigned={setSigned}
-                  setError={setError}
+                  setErrors={setErrors}
                   pet={pet}
                 />
-                {error && <span className="flex justify-center">{error}</span>}
+                {errors?.length &&
+                  errors.map((error) => (
+                    <span className="flex justify-center">{error}</span>
+                  ))}
               </div>
             </>
           )}

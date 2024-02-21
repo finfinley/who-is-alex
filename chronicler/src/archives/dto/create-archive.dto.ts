@@ -3,13 +3,13 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  MaxLength
+  MaxLength,
 } from 'class-validator';
 
 export class CreateArchiveDto {
   @IsString()
   @MaxLength(30)
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Name is required.' })
   readonly name: string;
 
   @IsString()

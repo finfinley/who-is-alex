@@ -4,19 +4,19 @@ import { PET_NAMES } from '../Pet';
 export function SignGuestbookForm({
   onClose,
   setSigned,
-  setError,
+  setErrors,
   pet,
 }: {
   onClose: () => void;
   setSigned: any;
-  setError: any;
+  setErrors: any;
   pet: PET_NAMES | null;
 }) {
   const signGuestbook = async (formData: FormData) => {
     const res = await createArchive(pet!, formData);
     if (!res.success) {
-      console.log(res.error);
-      setError(res.error);
+      console.log(res.errors);
+      setErrors(res.errors);
       return;
     }
     setSigned(true);
