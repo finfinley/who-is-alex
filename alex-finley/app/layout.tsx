@@ -22,10 +22,10 @@ export default function RootLayout({
       <html lang="en">
         <body className="flex flex-row">
           <NavBar />
-          <main>
+          {/* <main>
             <div className="max-w-max">{children}</div>
             <Pet defaultIndex={defaultIndex} />
-          </main>
+          </main> */}
         </body>
       </html>
     </ErrorBoundary>

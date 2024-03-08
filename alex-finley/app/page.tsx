@@ -4,8 +4,8 @@ import { MainContent } from "./components/Page/MainContent";
 export default function Home() {
   return (
     <>
-      <Header title="Hey There" />
-      <MainContent content="CONTENT" />
+      {/* <Header title="Hey There" />
+      <MainContent content="CONTENT" /> */}
     </>
   );
 }

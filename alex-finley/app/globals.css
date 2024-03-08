@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+nav {
+  border-bottom: 0.25em solid #e05263;
+  width: 100%;
+}
+
 body {
   background: #f2e9e4;
   color: #353b3c;
@@ -41,6 +46,32 @@ h2 {
   display: grid;
   font-weight: bold;
   font-size: 1.25em;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/*Bio Styles */
+.tag-line {
+  color: #5299d3;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-bottom: 0.1em dotted #E05263;
+}
+
+.sub-tag-line {
+  color: #70a288;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: italic;
 }
 
 /* The Modal (background) */
