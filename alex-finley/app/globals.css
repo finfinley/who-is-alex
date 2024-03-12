@@ -2,16 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Nav Stuff */
 nav {
   border-bottom: 0.25em solid #e05263;
   width: 100%;
 }
 
+.nav-links {
+  background-color: #e05263;
+  transform: translateX(0px);
+  transition: 0.5s all ease;
+  padding-bottom: 0.25em;
+}
+
+.link {
+  font-weight: bold;
+  color: #f2e9e4;
+}
+
+#active {
+  color: #353b3c;
+}
+
+#hamburger-links {
+  display: none;
+}
+
+/* End Nav Stuff */
+
+/* Basic Styles */
 body {
   background: #f2e9e4;
   color: #353b3c;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 main {
@@ -47,7 +71,9 @@ h2 {
   font-weight: bold;
   font-size: 1.25em;
 }
+/* End Basic Styles */
 
+/* Rows and Columns */
 .row {
   display: flex;
   flex-direction: row;
@@ -60,12 +86,13 @@ h2 {
   flex-direction: column;
   flex: 1;
 }
+/* End Rows and Columns */
 
 /*Bio Styles */
 .tag-line {
   color: #5299d3;
   font-family: 'Source Sans Pro', sans-serif;
-  border-bottom: 0.1em dotted #E05263;
+  border-bottom: 0.1em dotted #e05263;
 }
 
 .sub-tag-line {

@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { NavBar } from "./components/NavBar";
-import { Pet } from "./components/Pet";
-import { ErrorBoundary } from "react-error-boundary";
+import type { Metadata } from 'next';
+import './globals.css';
+import { NavBar } from './components/NavBar';
+import { Pet } from './components/Pet';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export const metadata: Metadata = {
-  title: "Who is Alex?",
-  description: "???",
+  title: 'Who is Alex?',
+  description: '???',
 };
 
 export default function RootLayout({
@@ -21,11 +21,13 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className="flex flex-row">
-          <NavBar />
-          {/* <main>
+          <div className='w-full'>
+            <NavBar />
+            {/* <main>
             <div className="max-w-max">{children}</div>
             <Pet defaultIndex={defaultIndex} />
           </main> */}
+          </div>
         </body>
       </html>
     </ErrorBoundary>
