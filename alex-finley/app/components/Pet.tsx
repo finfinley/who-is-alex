@@ -54,9 +54,11 @@ export function Pet({ defaultIndex }: { defaultIndex: number }) {
   }, [pathName]);
 
   const gifPet = petToShow.link ? (
-    <button onClick={openModal}>
-      <img className="justify-self-center self-end" src={petToShow.link} />
-    </button>
+    <div className="grid justify-center justify-items-center">
+      <button onClick={openModal}>
+        <img src={petToShow.link} />
+      </button>
+    </div>
   ) : (
     <img />
   );

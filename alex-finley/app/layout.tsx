@@ -21,12 +21,14 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className="flex flex-row">
-          <div className='w-full'>
+          <div className="w-full">
             <NavBar />
-            {/* <main>
-            <div className="max-w-max">{children}</div>
-            <Pet defaultIndex={defaultIndex} />
-          </main> */}
+            <main>
+              <div className="max-w-max">{children}</div>
+              <div>
+                <Pet defaultIndex={defaultIndex} />
+              </div>
+            </main>
           </div>
         </body>
       </html>
