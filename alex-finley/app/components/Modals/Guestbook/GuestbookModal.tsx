@@ -16,7 +16,7 @@ export function GuestbookModal({
 
   return (
     <div className="modal">
-      <div className="modal-content flex flex-row">
+      <div className="modal-content justify-center justify-items-center">
         <div>
           {!signed ? (
             <SignGuestbook onClose={onClose} pet={pet} setSigned={setSigned} />
